@@ -49,7 +49,7 @@ const authUser = asyncHandler(async (req, res) => {
       email: user.email,
       isAdmin: user.isAdmin,
       pic: user.pic,
-      // token: generateToken(user._id),
+      token: generateToken(user._id),
     });
   } else {
     res.status(401);
@@ -62,7 +62,7 @@ const allUsers = asyncHandler(async (req, res) => {
     ? {
         $or: [
           { name: { $regex: req.query.search, $options: "i" } },
-          { email: { $regex: req.query.search, $options: "i" } },
+          // { email: { $regex: req.query.search, $options: "i" } },
         ],
       }
     : {};
