@@ -25,7 +25,7 @@ import { BellIcon, ChevronDownIcon } from "@chakra-ui/icons";
 import { Avatar } from "@chakra-ui/react";
 import React, { useState } from "react";
 import ChatLoading from "../ChatLoading";
-// import { Spinner } from "@chakra-ui/spinner";
+import { Spinner } from "@chakra-ui/spinner";
 import ProfileModal from "./ProfileModal";
 // import NotificationBadge from "react-notification-badge";
 // import { Effect } from "react-notification-badge";
@@ -103,7 +103,11 @@ function SideDrawer() {
           Authorization: `Bearer ${user.token}`,
         },
       };
-      const { data } = await axios.post(`/api/chat`, { userId }, config);
+      const { data } = await axios.post(
+        `${process.env.REACT_APP_BASE_URL}/api/chat`,
+        { userId },
+        config
+      );
 
       if (!chats.find((c) => c._id === data._id)) setChats([data, ...chats]);
       setSelectedChat(data);
@@ -204,7 +208,7 @@ function SideDrawer() {
                 />
               ))
             )}
-            {/* {loadingChat && <Spinner ml="auto" d="flex" />} */}
+            {loadingChat && <Spinner ml="auto" d="flex" />}
           </DrawerBody>
         </DrawerContent>
       </Drawer>
