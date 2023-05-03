@@ -2,9 +2,13 @@
   "name": "chit-chat",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "start": "nodemon backend/server.js"
+    "start": "nodemon server.js",
+    "nodemon": "node server.js"
+  },
+  "engines": {
+    "node": ">=14.20.1"
   },
   "author": "Rohit gupta",
   "license": "ISC",

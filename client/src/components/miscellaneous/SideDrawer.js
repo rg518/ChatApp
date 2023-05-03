@@ -21,8 +21,7 @@ import {
 } from "@chakra-ui/modal";
 import { Tooltip } from "@chakra-ui/tooltip";
 import { BellIcon, ChevronDownIcon } from "@chakra-ui/icons";
-// import { Avatar } from "@chakra-ui/avatar";
-import { Avatar } from "@chakra-ui/react";
+import { Avatar } from "@chakra-ui/avatar";
 import React, { useState } from "react";
 import ChatLoading from "../ChatLoading";
 import { Spinner } from "@chakra-ui/spinner";
@@ -146,7 +145,7 @@ function SideDrawer() {
           <Tooltip label="Search Users to chat" hasArrow placement="bottom-end">
             <Button variant="ghost" onClick={onOpen}>
               <i className="fas fa-search"></i>
-              <Text d={{ base: "none", md: "flex" }} px={4}>
+              <Text display={{ base: "none", md: "inline-flex" }} px={4}>
                 Search User
               </Text>
             </Button>

@@ -1,5 +1,5 @@
 import { ViewIcon } from "@chakra-ui/icons";
-import { Flex } from "@chakra-ui/react";
+import { Box, Flex } from "@chakra-ui/react";
 import {
   Modal,
   ModalOverlay,
@@ -25,7 +25,7 @@ const ProfileModal = ({ user, children }) => {
       ) : (
         <IconButton d={{ base: "flex" }} icon={<ViewIcon />} onClick={onOpen} />
       )}
-      <Modal size="sm" onClose={onClose} isOpen={isOpen} isCentered>
+      <Modal size="md" onClose={onClose} isOpen={isOpen} isCentered>
         <ModalOverlay />
         <ModalContent h="410px">
           <ModalHeader>
@@ -46,15 +46,18 @@ const ProfileModal = ({ user, children }) => {
               alignItems="center"
               justifyContent="space-between"
             >
-              <Image
-                borderRadius="full"
-                boxSize="150px"
-                src={user.pic}
-                alt={user.name}
-              />
+              <Box mr={{ base: "0", md: "8" }}>
+                <Image
+                  borderRadius="full"
+                  boxSize="150px"
+                  src={user.pic}
+                  alt={user.name}
+                />
+              </Box>
               <Text
                 fontSize={{ base: "28px", md: "30px" }}
                 fontFamily="Work sans"
+                whiteSpace="nowrap"
               >
                 Email: {user.email}
               </Text>
@@ -72,47 +75,3 @@ const ProfileModal = ({ user, children }) => {
 };
 
 export default ProfileModal;
-
-// import React from "react";
-// import { ViewIcon } from "@chakra-ui/icons";
-// import { useDisclosure } from "@chakra-ui/hooks";
-// import {
-//   Modal,
-//   ModalOverlay,
-//   ModalContent,
-//   ModalHeader,
-//   ModalFooter,
-//   ModalBody,
-//   ModalCloseButton,
-//   Button,
-//   IconButton,
-//   //   Text,
-//   //   Image,
-// } from "@chakra-ui/react";
-
-// const ProfileModal = ({ user, children }) => {
-//   const { isOpen, onOpen, onClose } = useDisclosure();
-
-//   return (
-//     <>
-//       {children ? (
-//         <span onClick={onOpen}>{children}</span>
-//       ) : (
-//         <IconButton d={{ base: "flex" }} icon={<ViewIcon />} onClick={onOpen} />
-//       )}
-//       <Modal size="lg" onClose={onClose} isOpen={isOpen} isCentered>
-//         <ModalOverlay />
-//         <ModalContent>
-//           <ModalHeader>{user.name}</ModalHeader>
-//           <ModalCloseButton />
-//           <ModalBody>jfasghg</ModalBody>
-//           <ModalFooter>
-//             <Button onClick={onClose}>Close</Button>
-//           </ModalFooter>
-//         </ModalContent>
-//       </Modal>
-//     </>
-//   );
-// };
-
-// export default ProfileModal;
