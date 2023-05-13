@@ -17,7 +17,7 @@ import animationData from "../animations/typing.json";
 import io from "socket.io-client";
 import UpdateGroupChatModal from "./miscellaneous/UpdateGroupChatModal";
 import { ChatState } from "../Context/ChatProvider";
-const ENDPOINT = "http://localhost:4000"; // "https://talk-a-tive.herokuapp.com"; -> After deployment
+const ENDPOINT = "http://localhost:4000";
 var socket, selectedChatCompare;
 
 const SingleChat = ({ fetchAgain, setFetchAgain }) => {
@@ -170,7 +170,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
         <>
           <Text
             fontSize={{ base: "28px", md: "30px" }}
-            pb={3}
+            pb={2}
             px={2}
             w="100%"
             fontFamily="Work sans"
@@ -206,21 +206,23 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
             justifyContent="flex-end"
             p={3}
             bg="#E8E8E8"
+            // bg="black"
             w="100%"
-            h="100%"
+            // h="100%"
+            h="78vh"
             borderRadius="lg"
-            overflowY="hidden"
+            overflowY="scroll"
           >
             {loading ? (
               <Spinner
                 size="xl"
-                w={20}
-                h={20}
+                // w={20}
+                // h={20}
                 alignSelf="center"
                 margin="auto"
               />
             ) : (
-              <div className="messages">
+              <div className="messages" style={{ flex: 1, minHeight: 10 }}>
                 <ScrollableChat messages={messages} />
               </div>
             )}
@@ -230,6 +232,8 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
               id="first-name"
               isRequired
               mt={3}
+              position="sticky"
+              bottom={0}
             >
               {istyping ? (
                 <div

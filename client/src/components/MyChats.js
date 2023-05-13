@@ -57,15 +57,20 @@ const MyChats = ({ fetchAgain }) => {
       alignItems="center"
       p={3}
       bg="white"
-      w={{ base: "100%", md: "31%" }}
+      w={{ base: "100%", md: "31.2%" }}
+      h="89vh"
       borderRadius="lg"
       borderWidth="1px"
+      position="fixed"
+      boxShadow="md" // Add a box shadow for a more polished look
+      left={2} // Shift the box to the left side by setting right to 0
+      zIndex={1}
     >
       <Box>
         <Flex
-          pb={3}
-          px={3}
-          fontSize={{ base: "28px", md: "30px" }}
+          pb={0.7}
+          px={2}
+          fontSize={{ base: "20px", md: "30px" }}
           fontFamily="Work sans"
           fontWeight="medium"
           d="flex"
@@ -80,6 +85,7 @@ const MyChats = ({ fetchAgain }) => {
               d="flex"
               fontSize={{ base: "17px", md: "10px", lg: "17px" }}
               rightIcon={<AddIcon />}
+              colorScheme="teal"
             >
               {/* <Flex */}
               New Group Chat
@@ -93,10 +99,12 @@ const MyChats = ({ fetchAgain }) => {
         flexDir="column"
         p={3}
         bg="#F8F8F8"
+        // bg="black"
         w="100%"
-        h="100%"
+        h="78vh"
         borderRadius="lg"
-        overflowY="hidden"
+        overflowY="scroll"
+        mt={3}
       >
         {chats ? (
           <Stack overflowY="scroll">
@@ -110,6 +118,7 @@ const MyChats = ({ fetchAgain }) => {
                 py={2}
                 borderRadius="lg"
                 key={chat._id}
+                mb={2}
               >
                 <Text>
                   {!chat.isGroupChat
