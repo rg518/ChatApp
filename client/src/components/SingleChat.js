@@ -232,8 +232,12 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
               id="first-name"
               isRequired
               mt={3}
-              position="sticky"
-              bottom={0}
+              position="fixed"
+              // bottom="true"
+              zIndex={2}
+              bottom="3rem"
+              w="64vw"
+              overflow="hidden"
             >
               {istyping ? (
                 <div
